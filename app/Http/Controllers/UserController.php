@@ -28,9 +28,10 @@ class UserController extends Controller
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password'))
         ]);
-
+        
         if($user->save()){
-           return redirect()->route("user.index")->with('message', 'Success!');
+            Auth::login($user);
+           return redirect()->route("user.profile");
            // return view('user.signup')->with('message', 'Success!');
         }
         //return redirect()->route("user.index")->with('message', 'Success!');
@@ -63,6 +64,8 @@ class UserController extends Controller
     }
     public function profile()
     {
+        /*var_dump(Auth::user()->id);
+        die;*/
         return view('user.profile');
     }
     public function logout()

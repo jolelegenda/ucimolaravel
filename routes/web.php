@@ -16,25 +16,31 @@
 });*/
 Route::get('/', [
     'uses' => 'UserController@index',
-    'as' => 'user.index'
+    'as' => 'user.index',
+    'middleware'=>'guest'
 ]);
 Route::post('/signup', [
     'uses' => 'UserController@postSignup',
-    'as' => 'user.signup'
+    'as' => 'user.signup',
+    'middleware'=>'guest'
 ]);
 Route::get('/login', [
     'uses' => 'UserController@login',
-    'as' => 'user.login'
+    'as' => 'user.login',
+    'middleware'=>'guest'
 ]);
 Route::post('/loginpost', [
     'uses' => 'UserController@postLogin',
-    'as' => 'user.postLogin'
+    'as' => 'user.postLogin',
+    'middleware'=>'guest'
 ]);
 Route::get('/profile', [
     'uses' => 'UserController@profile',
-    'as' => 'user.profile'
+    'as' => 'user.profile',
+    'middleware'=>'auth'
 ]);
 Route::get('/logout', [
     'uses' => 'UserController@logout',
-    'as' => 'user.logout'
+    'as' => 'user.logout',
+    'middleware'=>'auth'
 ]);
