@@ -34,6 +34,10 @@
         @foreach($products as $product)
         {{ $product->name }} <br>
         @endforeach
+        
+        @if(empty($products->items))
+           {{ 'No products.' }}
+        @endif
     </div>
 </div>
 <script>
