@@ -20,15 +20,15 @@
   @endif
      <form action="{{ route('user.signup') }}" method="post">
          <div class="form-group">
-         <label for="password">Ime</label>
+         <label for="ime">Ime</label>
          <input type="text" id="ime" name="ime" class="form-control">
        </div>
          <div class="form-group">
-         <label for="password">Prezime</label>
+         <label for="prezime">Prezime</label>
          <input type="text" id="prezime" name="prezime" class="form-control">
        </div>
          <div class="form-group">
-         <label for="password">Adresa</label>
+         <label for="adresa">Adresa</label>
          <input type="text" id="adresa" name="adresa" class="form-control">
        </div>
          <div class="form-group">

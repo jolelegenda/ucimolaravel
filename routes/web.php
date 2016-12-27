@@ -44,3 +44,8 @@ Route::get('/logout', [
     'as' => 'user.logout',
     'middleware'=>'auth'
 ]);
+Route::post('/update', [
+    'uses' => 'UserController@updateUser',
+    'as' => 'user.updateUser',
+    'middleware'=>'auth'
+]);

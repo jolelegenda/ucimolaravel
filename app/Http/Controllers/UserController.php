@@ -66,11 +66,28 @@ class UserController extends Controller
     {
         /*var_dump(Auth::user()->id);
         die;*/
-        return view('user.profile');
+        
+        return view('user.profile',["user"=>Auth::user()]);
     }
     public function logout()
     {
         Auth::logout();
         return redirect()->back();
+    }
+    public function updateUser(Request $request)
+    {
+          $user = User::findOrFail($_POST['userId']);
+          $user->name=$request->input('name');
+          $user->surname=$request->input('surname');
+          $user->address=$request->input('address');
+          $res=$user->save();
+          if($res)
+          {
+              return response()->json(['error'=>false,'message'=>'uspesno izmenjeno']);
+          }
+          else
+          {
+              return response()->json(['error'=>true,'message'=>'doslo je do greske']);
+          }
     }
 }
