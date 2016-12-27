@@ -40,15 +40,17 @@
         @endif
     </div>
 </div>
+@endsection
+
+@section('scripts')
 <script>
-   window.onload=function(){
        $("#izmeniBtn").click(function(){
-            $.ajaxSetup({
+        $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('[name="_token"]').val()
             }
         })
-       // alert(('meta[name="_token"]').attr('content'));
+      
          var formData = {
             name: $('#ime').val(),
             surname: $('#prezime').val(),
@@ -61,9 +63,7 @@
             url: '/update',
             data: formData,
             dataType: 'json',
-           // method:'POST',
             success: function (data) {
-               // console.log(data);
                alert(data.message);
 
             },
@@ -71,7 +71,6 @@
                 console.log('Error:', data);
             }
         });
-       })
-   }
+    })
 </script>
 @endsection
