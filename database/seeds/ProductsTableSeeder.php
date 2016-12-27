@@ -25,5 +25,9 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Samsung Galaxy J7',
             'user_id' => 2
         ]);
+        DB::table('products')->insert([
+            'name' => 'Djevreci sunka',
+            'user_id' => 2
+        ]);
     }
 }
