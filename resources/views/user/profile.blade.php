@@ -35,7 +35,7 @@
         {{ $product->name }} <br>
         @endforeach
         
-        @if(empty($products->items))
+        @if($products->isEmpty())
            {{ 'No products.' }}
         @endif
     </div>
