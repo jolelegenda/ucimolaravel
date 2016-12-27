@@ -2,20 +2,18 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class Product extends Model
 {
-    use Notifiable;
-
-    /**
+    
+      /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name','surname','address', 'email', 'password',
+        'name','user_id',
     ];
 
     /**
@@ -27,7 +25,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     
-     public function getProductByUser(){
-       return $this->hasMany('App\Product', 'user_id');
+   public function getProductByUser(){
+       return $this->belongsTo('App\User' , 'user_id');
     }
 }

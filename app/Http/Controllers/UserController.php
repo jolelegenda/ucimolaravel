@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Product;
 use Auth;
 class UserController extends Controller
 {
@@ -64,10 +65,9 @@ class UserController extends Controller
     }
     public function profile()
     {
-        /*var_dump(Auth::user()->id);
-        die;*/
-        
-        return view('user.profile',["user"=>Auth::user()]);
+      $products = User::find(Auth::user()->id)->getProductByUser;
+      //var_dump(Product::find(3)->getProductByUser); die;
+      return view('user.profile',["user"=>Auth::user(),'products' => $products]);
     }
     public function logout()
     {
