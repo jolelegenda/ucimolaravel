@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-{{'login'}}
+{{'User profile'}}
 @endsection
 @section('content')
 <div class="row">
