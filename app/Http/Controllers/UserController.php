@@ -76,7 +76,7 @@ class UserController extends Controller
     }
     public function updateUser(Request $request)
     {
-          $user = User::findOrFail($_POST['userId']);
+          $user = User::findOrFail($request->input('userId'));
           $user->name=$request->input('name');
           $user->surname=$request->input('surname');
           $user->address=$request->input('address');
