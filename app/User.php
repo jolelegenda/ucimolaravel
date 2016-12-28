@@ -28,6 +28,7 @@ class User extends Authenticatable
     ];
     
      public function getProductByUser(){
-       return $this->hasMany('App\Product', 'user_id');
+       
+       return $this->hasMany('App\Product', 'user_id')->orderBy('id', 'DESC');
     }
 }

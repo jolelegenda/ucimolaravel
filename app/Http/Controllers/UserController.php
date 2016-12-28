@@ -63,12 +63,16 @@ class UserController extends Controller
         return redirect()->back();
         
     }
-    public function profile()
+    public function profile(Request $request)
     {
-      $products = User::find(Auth::user()->id)->getProductByUser;
+      //$products = User::find(Auth::user()->id)->getProductByUser;
       //var_dump(Product::find(3)->getProductByUser); die;
       //var_dump(User::find(Auth::user()->id)->getProductByUser()->paginate(1));
-      //die;
+      $products = User::find(Auth::user()->id)->getProductByUser()->paginate(1);
+      
+       if ($request->ajax()) {
+            return view('user.ajaxpagination', array('products' => $products))->render();
+        }
       return view('user.profile',["user"=>Auth::user(),'products' => $products]);
     }
     public function logout()
