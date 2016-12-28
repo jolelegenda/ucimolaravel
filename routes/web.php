@@ -19,6 +19,13 @@ Route::get('/', [
     'as' => 'user.index',
     'middleware'=>'guest'
 ]);
+
+Route::get('/products', [
+    'uses' => 'UserController@getProducts',
+    'as' => 'user.products',
+    'middleware'=>'auth'
+]);
+
 Route::post('/signup', [
     'uses' => 'UserController@postSignup',
     'as' => 'user.signup',

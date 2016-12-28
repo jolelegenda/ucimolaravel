@@ -23,6 +23,7 @@
                     <ul class="dropdown-menu">
                        @if(Auth::check())
                        <li><a href="{{route('user.profile')}}">Profile</a></li>
+                       <li><a href="{{route('user.products')}}">All products</a></li>
                        <li><a href="{{route('user.logout')}}">Logout</a></li>
                        @else
                         <li><a href="{{route('user.index')}}">Signup</a></li>
