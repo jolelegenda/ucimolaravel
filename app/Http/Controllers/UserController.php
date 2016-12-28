@@ -67,6 +67,8 @@ class UserController extends Controller
     {
       $products = User::find(Auth::user()->id)->getProductByUser;
       //var_dump(Product::find(3)->getProductByUser); die;
+      //var_dump(User::find(Auth::user()->id)->getProductByUser()->paginate(1));
+      //die;
       return view('user.profile',["user"=>Auth::user(),'products' => $products]);
     }
     public function logout()
