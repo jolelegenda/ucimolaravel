@@ -79,7 +79,7 @@ class UserController extends Controller
        if ($request->ajax()) {
             return view('user.ajaxpagination', array('products' => $products))->render();
         }
-      return view('user.profile',["user"=>Auth::user(),'products' => $products]);
+      return view('user.profile',["user"=>Auth::user(),'products' => $products, 'categories' => Category::renderAsHtml()]);
     }
     
     public function getProducts(){
